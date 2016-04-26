@@ -1,6 +1,6 @@
 <?php
 /**
- * Karliuka Vitalii
+ * Faonni
  *  
  * NOTICE OF LICENSE
  *
