@@ -6,3 +6,5 @@ Installation
 -------
 
 Download the plugin and copy the 'app' and 'skin' folder to the root of your Magento installation.
+
+* [Rounding Price from Magento2](https://github.com/karliuka/m2.Price)
