@@ -31,10 +31,6 @@ class Faonni_RoundPriceConvert_Model_Adminhtml_System_Config_Source_Type
     {
 		return array(
 			array(
-				'value' => Faonni_RoundPriceConvert_Model_Type::ROUND, 
-				'label' => Mage::helper('faonni_roundpriceconvert')->__('Standart')
-			),
-			array(
 				'value' => Faonni_RoundPriceConvert_Model_Type::CEIL, 
 				'label' => Mage::helper('faonni_roundpriceconvert')->__('Round fractions up')
 			),
@@ -53,7 +49,6 @@ class Faonni_RoundPriceConvert_Model_Adminhtml_System_Config_Source_Type
     public function toArray()
     {
 		return array(
-			Faonni_RoundPriceConvert_Model_Type::ROUND => Mage::helper('faonni_roundpriceconvert')->__('Standart'),
 			Faonni_RoundPriceConvert_Model_Type::CEIL  => Mage::helper('faonni_roundpriceconvert')->__('Round fractions up'),
 			Faonni_RoundPriceConvert_Model_Type::FLOOR => Mage::helper('faonni_roundpriceconvert')->__('Round fractions down')
 		);

@@ -46,13 +46,10 @@ class Faonni_RoundPriceConvert_Model_Currency
 			{
 				switch ($helper->getRoundType()) {
 					case Faonni_RoundPriceConvert_Model_Type::CEIL:
-						$price = ceil($price);
+						$price = round($price, $helper->getPrecision(), PHP_ROUND_HALF_UP);
 						break;
 					case Faonni_RoundPriceConvert_Model_Type::FLOOR:
-						$price = floor($price);
-						break;
-					case Faonni_RoundPriceConvert_Model_Type::ROUND:
-						$price = round($price);
+						$price = round($price, $helper->getPrecision(), PHP_ROUND_HALF_DOWN);
 						break;
 				}
 				

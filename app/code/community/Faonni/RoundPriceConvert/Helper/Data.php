@@ -63,5 +63,15 @@ class Faonni_RoundPriceConvert_Helper_Data
 		$amount = Mage::getStoreConfig('catalog/roundpriceconvert/amount');
 		return (is_numeric($amount)) ? $amount : 0;
 		
-    }	
+    }
+	
+    /**
+     * Retrieve precision
+     *
+     * @return int
+     */
+    public function getPrecision()
+    {
+        return (int)Mage::getStoreConfig('catalog/roundpriceconvert/precision');
+    }		
 }

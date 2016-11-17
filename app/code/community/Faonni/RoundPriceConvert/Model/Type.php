@@ -22,11 +22,6 @@
 class Faonni_RoundPriceConvert_Model_Type
 {
     /**
-     * Round stansart constant
-     */
-    const ROUND = 'round';
-	
-    /**
      * Round fractions up constant
      */	
 	const CEIL = 'ceil';

@@ -44,7 +44,7 @@
                         </active>
 						<type translate="label comment">
                             <label>Rounding Type</label>
-							<comment><![CDATA[Standart, Round fractions up or Round fractions down]]></comment>
+							<comment><![CDATA[Round fractions up or Round fractions down]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>10</sort_order>
                             <source_model>faonni_roundpriceconvert/adminhtml_system_config_source_type</source_model>
@@ -53,6 +53,16 @@
                             <show_in_store>1</show_in_store>
                             <depends><active>1</active></depends>
                         </type>
+                        <precision translate="label comment">
+                            <label>Precision</label>
+							<comment><![CDATA[The optional number of decimal digits to round to]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<depends><active>1</active></depends>
+                        </precision>							
                         <subtract translate="label comment">
                             <label>Subtract Amount</label>
 							<comment><![CDATA[Subtract Amount from the Result]]></comment>

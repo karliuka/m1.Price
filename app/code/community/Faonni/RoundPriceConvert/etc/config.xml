@@ -24,7 +24,7 @@
 <config>
 	<modules>
 		<Faonni_RoundPriceConvert>
-			<version>0.1.1</version>
+			<version>0.1.2</version>
 		</Faonni_RoundPriceConvert>
 	</modules>
 	<global>
@@ -59,7 +59,8 @@
         <catalog>
             <roundpriceconvert>
                 <active>1</active>
-                <type>round</type>
+                <type>floor</type>
+				<precision>0</precision>
                 <subtract>1</subtract>
                 <amount>0.01</amount>
             </roundpriceconvert>
