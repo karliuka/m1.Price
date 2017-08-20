@@ -16,30 +16,30 @@
  * Do not edit or add to this file if you wish to upgrade module to newer
  * versions in the future.
  * 
- * @package     Faonni_RoundPriceConvert
- * @copyright   Copyright (c) 2015 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
+ * @package     Faonni_Price
+ * @copyright   Copyright (c) 2017 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 -->
 <config>
 	<modules>
-		<Faonni_RoundPriceConvert>
-			<version>0.1.2</version>
-		</Faonni_RoundPriceConvert>
+		<Faonni_Price>
+			<version>1.2.1</version>
+		</Faonni_Price>
 	</modules>
 	<global>
 		<helpers>
-			<faonni_roundpriceconvert>
-				<class>Faonni_RoundPriceConvert_Helper</class>
-			</faonni_roundpriceconvert>
+			<faonni_price>
+				<class>Faonni_Price_Helper</class>
+			</faonni_price>
 		</helpers>
 		<models>
-            <faonni_roundpriceconvert>
-                <class>Faonni_RoundPriceConvert_Model</class>
-            </faonni_roundpriceconvert>
+            <faonni_price>
+                <class>Faonni_Price_Model</class>
+            </faonni_price>
 			<directory>
 				<rewrite>
-					<currency>Faonni_RoundPriceConvert_Model_Currency</currency>
+					<currency>Faonni_Price_Model_Currency</currency>
 				</rewrite>
 			</directory>			
 		</models>		
@@ -47,23 +47,28 @@
     <adminhtml>
         <translate>
             <modules>
-                <Faonni_RoundPriceConvert>
+                <Faonni_Price>
                     <files>
-                        <default>Faonni_RoundPriceConvert.csv</default>
+                        <default>Faonni_Price.csv</default>
                     </files>
-                </Faonni_RoundPriceConvert>
+                </Faonni_Price>
             </modules>
         </translate>
     </adminhtml>	
     <default>
-        <catalog>
-            <roundpriceconvert>
-                <active>1</active>
+        <currency>
+            <price>
+                <enabled>1</enabled>
+                <base_price>0</base_price>
                 <type>floor</type>
+                <swedish_fraction>0.05</swedish_fraction>
 				<precision>0</precision>
                 <subtract>1</subtract>
-                <amount>0.01</amount>
-            </roundpriceconvert>
-        </catalog>
+				<amount>0.01</amount>
+				<show_decimal_zero>1</show_decimal_zero>
+				<replace_zero_price>0</replace_zero_price>
+				<zero_price_text>free</zero_price_text>
+            </price>
+        </currency>
     </default>	
 </config> 

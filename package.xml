@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Faonni_Price</name>
+    <version>1.2.1</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Rounding Price to Prettier Value for Multi-Currency Stores.</summary>
+    <description>Rounding Price to Prettier Value for Multi-Currency Stores.</description>
+    <notes>Rounding Price to Prettier Value for Multi-Currency Stores.</notes>
+    <authors><author><name>Karliuka Vitalii</name><user>karliuka</user><email>karliuka.vitalii@gmail.com</email></author></authors>
+    <date/>
+    <time/>
+    <contents/>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>8.0.0</max></php></required></dependencies>
+</package> 
