@@ -28,6 +28,11 @@
 		</Faonni_Price>
 	</modules>
 	<global>
+		<blocks>
+			<faonni_price>
+				<class>Faonni_Price_Block</class>
+			</faonni_price>			
+		</blocks>	
 		<helpers>
 			<faonni_price>
 				<class>Faonni_Price_Helper</class>
@@ -36,12 +41,21 @@
 		<models>
             <faonni_price>
                 <class>Faonni_Price_Model</class>
+				<resourceModel>faonni_price_resource</resourceModel>
             </faonni_price>
 			<directory>
 				<rewrite>
 					<currency>Faonni_Price_Model_Currency</currency>
 				</rewrite>
-			</directory>			
+			</directory>
+			<faonni_price_resource>
+				<class>Faonni_Price_Model_Resource</class>
+				<entities>		  
+					<round_rule>
+						<table>faonni_price_round_rule</table>
+					</round_rule> 					
+				</entities>
+			</faonni_price_resource>			
 		</models>		
 	</global>
     <adminhtml>
