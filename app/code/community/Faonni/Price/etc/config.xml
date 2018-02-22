@@ -17,14 +17,14 @@
  * versions in the future.
  * 
  * @package     Faonni_Price
- * @copyright   Copyright (c) 2018 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
+ * @copyright   Copyright (c) 2017 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 -->
 <config>
 	<modules>
 		<Faonni_Price>
-			<version>1.2.1</version>
+			<version>1.2.2</version>
 		</Faonni_Price>
 	</modules>
 	<global>
@@ -56,9 +56,33 @@
 					</round_rule> 					
 				</entities>
 			</faonni_price_resource>			
-		</models>		
+		</models>
+		<resources>
+			<faonni_price_setup>
+				<setup>
+					<module>Faonni_Price</module>
+				</setup>
+			</faonni_price_setup>
+			<faonni_price_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</faonni_price_write>
+			<faonni_price_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</faonni_price_read>
+		</resources>		
 	</global>
     <adminhtml>
+        <layout>
+            <updates>
+                <faonni_price>
+                    <file>faonni/price.xml</file>
+                </faonni_price>
+            </updates>
+        </layout>	
         <translate>
             <modules>
                 <Faonni_Price>
@@ -68,7 +92,18 @@
                 </Faonni_Price>
             </modules>
         </translate>
-    </adminhtml>	
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Faonni_Price before="Mage_Adminhtml">Faonni_Price_Adminhtml</Faonni_Price>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>	
     <default>
         <currency>
             <price>
