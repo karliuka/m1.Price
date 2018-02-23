@@ -94,7 +94,7 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit
 			Mage::registry('current_faonni_price_round_rule')->getId()){
 			return $this->__(
 				"Edit Rule '%s'", 
-				$this->htmlEscape(Mage::registry('current_faonni_price_round_rule')->getName())
+				$this->htmlEscape(Mage::registry('current_faonni_price_round_rule')->getId())
 			);
 		} 
 		else return $this->__('Add Rule');

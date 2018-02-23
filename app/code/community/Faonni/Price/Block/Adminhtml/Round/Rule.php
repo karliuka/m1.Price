@@ -31,7 +31,7 @@ class Faonni_Price_Block_Adminhtml_Round_Rule
 	{
 		$this->_controller = 'adminhtml_round_rule';
 		$this->_blockGroup = 'faonni_price';
-		$this->_headerText = $this->__('Manage Round Rule');
+		$this->_headerText = $this->__('Manage Round Rules');
 		
 		parent::__construct();
 	}
