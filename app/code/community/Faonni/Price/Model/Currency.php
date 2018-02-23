@@ -167,7 +167,7 @@ class Faonni_Price_Model_Currency
      */
     protected function _round($price)
     {
-		$math = Mage::getSingleton('faonni_price');
+		$math = Mage::getSingleton('faonni_price/math');
 		return $this->_format(
 			$math->round($price)
 		);
