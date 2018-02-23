@@ -62,6 +62,20 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 			'note'      => $this->__('Round fractions up or Round fractions down.')
         ));
 		
+		$fieldset->addField('precision', 'text', array(
+			'label'     => $this->__('Precision'),
+			'title'     => $this->__('Precision'),	
+			'name'      => 'precision',
+			'note'      => $this->__('The optional number of decimal digits to round to.')
+		));
+		
+        $fieldset->addField('swedish_fraction', 'select', array(
+            'label'     => $this->__('Swedish Fraction'),
+            'title'     => $this->__('Swedish Fraction'),
+            'name'      => 'swedish_fraction',
+            'options'   => Mage::getSingleton('faonni_price/adminhtml_system_config_source_fraction')->toArray(),
+        ));	
+		
         $fieldset->addField('subtract', 'select', array(
             'label'     => $this->__('Subtract'),
             'title'     => $this->__('Subtract'),
@@ -75,25 +89,11 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 			'name'      => 'amount',
 		));
 		
-		$fieldset->addField('precision', 'text', array(
-			'label'     => $this->__('Precision'),
-			'title'     => $this->__('Precision'),	
-			'name'      => 'precision',
-			'note'      => $this->__('The optional number of decimal digits to round to.')
-		));
-		
         $fieldset->addField('show_decimal_zero', 'select', array(
             'label'     => $this->__('Show Decimal Zeros'),
             'title'     => $this->__('Show Decimal Zeros'),
             'name'      => 'show_decimal_zero',
             'options'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray(),
-        ));	
-		
-        $fieldset->addField('swedish_fraction', 'select', array(
-            'label'     => $this->__('Swedish Fraction'),
-            'title'     => $this->__('Swedish Fraction'),
-            'name'      => 'swedish_fraction',
-            'options'   => Mage::getSingleton('faonni_price/adminhtml_system_config_source_fraction')->toArray(),
         ));	
 		
 		$fieldset->addField('position', 'text', array(
@@ -116,6 +116,33 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 		elseif(Mage::registry('current_faonni_price_round_rule')){
 			$form->setValues(Mage::registry('current_faonni_price_round_rule')->getData());
 		}
+		
+        $this->setChild('form_after', $this->getLayout()
+			->createBlock('adminhtml/widget_form_element_dependence')
+            ->addFieldMap('type', 'type')
+            ->addFieldMap('precision', 'precision')
+            ->addFieldMap('swedish_fraction', 'swedish_fraction')
+			->addFieldMap('subtract', 'subtract')
+			->addFieldMap('amount', 'amount')
+            ->addFieldDependence(
+                'swedish_fraction',
+                'type',
+                array(
+					Faonni_Price_Model_Currency::TYPE_SWEDISH_CEIL,
+					Faonni_Price_Model_Currency::TYPE_SWEDISH_ROUND,
+					Faonni_Price_Model_Currency::TYPE_SWEDISH_FLOOR
+				)
+            )
+            ->addFieldDependence(
+                'precision',
+                'type',
+                array(
+					Faonni_Price_Model_Currency::TYPE_CEIL,
+					Faonni_Price_Model_Currency::TYPE_FLOOR
+				)
+            )			
+            ->addFieldDependence('amount', 'subtract', '1')
+        );
 		
 		return parent::_prepareForm();
 	}
