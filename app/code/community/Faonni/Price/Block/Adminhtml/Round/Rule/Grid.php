@@ -50,6 +50,18 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 		return parent::_prepareCollection();
 	}
 	
+    /**
+     * Retrieve application store object
+	 *
+     * @return Mage_Core_Model_Store
+     */	
+    protected function _getStore()
+    {
+        return Mage::app()->getStore(
+			(int)$this->getRequest()->getParam('store', 0)
+		);
+    }
+	
     /**	
      * Add grid columns
 	 *
@@ -57,6 +69,7 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
      */			
 	protected function _prepareColumns()
 	{
+		$store = $this->_getStore();
 		$this->addColumn('rule_id', array(
 			'header' => $this->__('ID'),
 			'align'  => 'right',
@@ -65,26 +78,81 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'index'  => 'rule_id',
 		));	
 		
-		$this->addColumn('name', array(
-			'header' => $this->__('Name'),
-			'index'  => 'name',
-			'escape' => true,
+        $this->addColumn('min_amount', array(
+			'header' => $this->__('Min Amount'),
+			'type'   => 'price',
+			'currency_code' => $store->getBaseCurrency()->getCode(),
+			'index' => 'min_amount',
+        ));	
+		
+        $this->addColumn('max_amount', array(
+			'header' => $this->__('Max Amount'),
+			'type'   => 'price',
+			'currency_code' => $store->getBaseCurrency()->getCode(),
+			'index' => 'max_amount',
+        ));
+		
+		$this->addColumn('type', array(
+			'header' => $this->__('Rounding Type'),
+			'index'  => 'type',
+			'type'   => 'options',
+			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_type')->toArray()			
+		));
+		
+		$this->addColumn('subtract', array(
+			'header' => $this->__('Subtract'),
+			'index'  => 'subtract',
+			'type'   => 'options',
+			'options' => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray()			
+		));
+		
+        $this->addColumn('amount', array(
+			'header' => $this->__('Subtract Amount'),
+			'type'   => 'price',
+			'currency_code' => $store->getBaseCurrency()->getCode(),
+			'index' => 'amount',
+        ));
+		
+		$this->addColumn('precision', array(
+			'header' => $this->__('Precision'),
+			'index'  => 'precision'
+		));
+		
+		$this->addColumn('show_decimal_zero', array(
+			'header' => $this->__('Show Decimal Zeros'),
+			'index'  => 'show_decimal_zero',
+			'type'   => 'options',
+			'options' => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray()			
+		));
+		
+		$this->addColumn('swedish_fraction', array(
+			'header' => $this->__('Swedish Fraction'),
+			'index'  => 'swedish_fraction',
+			'type'   => 'options',
+			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_fraction')->toArray()			
+		));
+		
+		$this->addColumn('position', array(
+			'header' => $this->__('Position'),
+			'index'  => 'position'
 		));	
 		
-        $this->addColumn('created_at', array(
-            'header' => $this->__('Created At'),
-            'align'  => 'left',
-            'width'  => '180px',			
-            'type'   => 'datetime',
-            'index'  => 'created_at',
-        ));
+        if (!Mage::app()->isSingleStoreMode()) {
+            $this->addColumn('store_id', array(
+                'header'    => $this->__('Store'),
+                'index'     => 'store_id',
+                'type'      => 'store',
+                'store_view'=> true,
+                'display_deleted' => true,
+            ));
+        }
 		
 		$this->addColumn('status', array(
 			'header' => $this->__('Status'),
 			'index'  => 'status',
 			'width'  => '100px',
 			'type'   => 'options',
-			//'options' => Mage::getSingleton('faonni_price/round_rule_source_status')->getOptions(),
+			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_status')->toArray(),
 			'frame_callback' => array($this, 'decorateStatus')			
 		));
 
@@ -136,15 +204,14 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
     public function decorateStatus($value, $row, $column, $isExport)
     {
 		$class = '';
-        switch($value)
-		{
+        switch($value) {
             case Faonni_Price_Model_Round_Rule::STATUS_ENABLED:
                 $class = 'grid-severity-notice';
-				$value = $this->__('Enabled');
+				$value = $this->__('Enable');
                 break;
             case Faonni_Price_Model_Round_Rule::STATUS_DISABLED:
                 $class = 'grid-severity-critical';
-				$value = $this->__('Disabled');
+				$value = $this->__('Disable');
                 break;
         }
         return $isExport 
