@@ -89,14 +89,7 @@ if (!$connection->isTableExists($installer->getTable('faonni_price/round_rule'))
 			null, 
 			array(), 
 			'Precision'
-		)			
-		->addColumn(
-			'show_decimal_zero', 
-			Varien_Db_Ddl_Table::TYPE_SMALLINT, 
-			null, 
-			array('unsigned' => true), 
-			'Show Decimal Zeros'
-		)			
+		)					
 		->addColumn(
 			'swedish_fraction', 
 			Varien_Db_Ddl_Table::TYPE_DECIMAL, 

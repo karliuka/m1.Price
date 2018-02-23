@@ -118,13 +118,6 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'index'  => 'precision'
 		));
 		
-		$this->addColumn('show_decimal_zero', array(
-			'header' => $this->__('Show Decimal Zeros'),
-			'index'  => 'show_decimal_zero',
-			'type'   => 'options',
-			'options' => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray()			
-		));
-		
 		$this->addColumn('swedish_fraction', array(
 			'header' => $this->__('Swedish Fraction'),
 			'index'  => 'swedish_fraction',

@@ -99,13 +99,6 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 			'name'      => 'amount',
 		));
 		
-        $fieldset->addField('show_decimal_zero', 'select', array(
-            'label'     => $this->__('Show Decimal Zeros'),
-            'title'     => $this->__('Show Decimal Zeros'),
-            'name'      => 'show_decimal_zero',
-            'options'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray(),
-        ));	
-		
 		$fieldset->addField('position', 'text', array(
 			'label'     => $this->__('Position'),
 			'title'     => $this->__('Position'),	
