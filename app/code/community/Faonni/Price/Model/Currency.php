@@ -192,27 +192,10 @@ class Faonni_Price_Model_Currency
      */
     protected function _round($price)
     {
-		$fraction = $this->_helper->getSwedishFraction();
-		$precision = $this->_helper->getPrecision();
-		
-		switch ($this->_helper->getRoundType()) {
-			case self::TYPE_CEIL:
-				$price = round($price, $precision, PHP_ROUND_HALF_UP);
-				break;
-			case self::TYPE_FLOOR:
-				$price = round($price, $precision, PHP_ROUND_HALF_DOWN);
-				break;
-			case self::TYPE_SWEDISH_CEIL:
-				$price = ceil($price/$fraction) * $fraction;
-				break;
-			case self::TYPE_SWEDISH_ROUND:
-				$price = round($price/$fraction) * $fraction;
-				break;
-			case self::TYPE_SWEDISH_FLOOR:
-				$price = floor($price/$fraction) * $fraction;
-				break;				
-		}
-		return $this->_format($price);
+		$math = Mage::getSingleton('faonni_price');
+		return $this->_format(
+			$math->round($price)
+		);
     }
     
     /**
