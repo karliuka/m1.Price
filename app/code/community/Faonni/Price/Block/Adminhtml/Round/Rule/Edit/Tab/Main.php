@@ -39,19 +39,74 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 			array('legend' => $this->__('General'))
 		);
 		
-		$fieldset->addField('name', 'text', array(
-			'label'    => $this->__('Name'),
-			'title'    => $this->__('Name'),	
+		$fieldset->addField('min_amount', 'text', array(
+			'label'    => $this->__('Min Amount'),
+			'title'    => $this->__('Min Amount'),	
 			'required' => true,
-			'name'     => 'name',
+			'name'     => 'min_amount',
+		));
+		
+		$fieldset->addField('max_amount', 'text', array(
+			'label'    => $this->__('Max Amount'),
+			'title'    => $this->__('Max Amount'),	
+			'required' => true,
+			'name'     => 'max_amount',
+		));
+		
+        $fieldset->addField('type', 'select', array(
+            'label'     => $this->__('Rounding Type'),
+            'title'     => $this->__('Rounding Type'),
+            'name'      => 'type',
+            'required'  => true,
+            'options'   => Mage::getSingleton('faonni_price/adminhtml_system_config_source_type')->toArray(),
+			'note'      => $this->__('Round fractions up or Round fractions down.')
+        ));
+		
+        $fieldset->addField('subtract', 'select', array(
+            'label'     => $this->__('Subtract'),
+            'title'     => $this->__('Subtract'),
+            'name'      => 'subtract',
+            'options'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray(),
+        ));
+		
+		$fieldset->addField('amount', 'text', array(
+			'label'     => $this->__('Subtract Amount'),
+			'title'     => $this->__('Subtract Amount'),	
+			'name'      => 'amount',
+		));
+		
+		$fieldset->addField('precision', 'text', array(
+			'label'     => $this->__('Precision'),
+			'title'     => $this->__('Precision'),	
+			'name'      => 'precision',
+			'note'      => $this->__('The optional number of decimal digits to round to.')
+		));
+		
+        $fieldset->addField('show_decimal_zero', 'select', array(
+            'label'     => $this->__('Show Decimal Zeros'),
+            'title'     => $this->__('Show Decimal Zeros'),
+            'name'      => 'show_decimal_zero',
+            'options'   => Mage::getSingleton('adminhtml/system_config_source_yesno')->toArray(),
+        ));	
+		
+        $fieldset->addField('swedish_fraction', 'select', array(
+            'label'     => $this->__('Swedish Fraction'),
+            'title'     => $this->__('Swedish Fraction'),
+            'name'      => 'swedish_fraction',
+            'options'   => Mage::getSingleton('faonni_price/adminhtml_system_config_source_fraction')->toArray(),
+        ));	
+		
+		$fieldset->addField('position', 'text', array(
+			'label'     => $this->__('Position'),
+			'title'     => $this->__('Position'),	
+			'name'      => 'position'
 		));
 		
         $fieldset->addField('status', 'select', array(
             'label'     => $this->__('Status'),
             'title'     => $this->__('Status'),
             'name'      => 'status',
-            'required'  => true,
-            'options'   => Mage::getSingleton('faonni_price/round_rule_source_status')->getOptions(),
+            'options'   => Mage::getSingleton('faonni_price/adminhtml_system_config_source_status')->toArray(),
         ));
 		
 		if(Mage::getSingleton('adminhtml/session')->getCurrentFaonniPriceRoundRule()){

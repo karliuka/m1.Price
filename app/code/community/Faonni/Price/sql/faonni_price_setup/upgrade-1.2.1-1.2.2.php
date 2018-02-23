@@ -112,11 +112,11 @@ if (!$connection->isTableExists($installer->getTable('faonni_price/round_rule'))
 			'Position'
 		)		
 		->addColumn(
-			'enabled', 
+			'status', 
 			Varien_Db_Ddl_Table::TYPE_SMALLINT, 
 			null, 
 			array('unsigned' => true, 'default' => '0'), 
-			'Enabled'
+			'Status'
 		)	
 		->addIndex(
 			$installer->getIdxName('faonni_price/round_rule', array('store_id')),
@@ -127,8 +127,8 @@ if (!$connection->isTableExists($installer->getTable('faonni_price/round_rule'))
 			array('position')
 		)
 		->addIndex(
-			$installer->getIdxName('faonni_price/round_rule', array('enabled')),
-			array('enabled')
+			$installer->getIdxName('faonni_price/round_rule', array('status')),
+			array('status')
 		)
 		->addForeignKey(
 			$installer->getFkName('faonni_price/round_rule', 'store_id', 'core/store', 'store_id'),
