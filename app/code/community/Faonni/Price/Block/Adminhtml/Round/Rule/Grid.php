@@ -80,16 +80,16 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 		
         $this->addColumn('min_amount', array(
 			'header' => $this->__('Min Amount'),
-			'type'   => 'price',
-			'currency_code' => $store->getBaseCurrency()->getCode(),
+			'filter' => false,
 			'index' => 'min_amount',
+			'renderer' => 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency',
         ));	
 		
         $this->addColumn('max_amount', array(
 			'header' => $this->__('Max Amount'),
-			'type'   => 'price',
-			'currency_code' => $store->getBaseCurrency()->getCode(),
+			'filter' => false,
 			'index' => 'max_amount',
+			'renderer' => 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency',
         ));
 		
 		$this->addColumn('type', array(
@@ -108,9 +108,9 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 		
         $this->addColumn('amount', array(
 			'header' => $this->__('Subtract Amount'),
-			'type'   => 'price',
-			'currency_code' => $store->getBaseCurrency()->getCode(),
+			'filter' => false,
 			'index' => 'amount',
+			'renderer' => 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency',
         ));
 		
 		$this->addColumn('precision', array(
@@ -137,23 +137,19 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'index'  => 'position'
 		));	
 		
-        if (!Mage::app()->isSingleStoreMode()) {
-            $this->addColumn('store_id', array(
-                'header'    => $this->__('Store'),
-                'index'     => 'store_id',
-                'type'      => 'store',
-                'store_view'=> true,
-                'display_deleted' => true,
-            ));
-        }
+		$this->addColumn('store_id', array(
+			'header'    => $this->__('Store'),
+			'index'     => 'store_id',
+			'type'      => 'store',
+			'store_view'=> true,
+		));
 		
 		$this->addColumn('status', array(
 			'header' => $this->__('Status'),
 			'index'  => 'status',
 			'width'  => '100px',
 			'type'   => 'options',
-			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_status')->toArray(),
-			'frame_callback' => array($this, 'decorateStatus')			
+			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_status')->toArray()			
 		));
 
 		$this->addExportType('*/*/exportCsv', Mage::helper('sales')->__('CSV')); 
@@ -191,31 +187,4 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			));
 		return $this;
 	}
-	
-    /**
-     * Decorate status column values
-	 *
-     * @param string $value
-     * @param Mage_Index_Model_Process $row
-     * @param Mage_Adminhtml_Block_Widget_Grid_Column $column
-     * @param bool $isExport
-     * @return string
-     */
-    public function decorateStatus($value, $row, $column, $isExport)
-    {
-		$class = '';
-        switch($value) {
-            case Faonni_Price_Model_Round_Rule::STATUS_ENABLED:
-                $class = 'grid-severity-notice';
-				$value = $this->__('Enable');
-                break;
-            case Faonni_Price_Model_Round_Rule::STATUS_DISABLED:
-                $class = 'grid-severity-critical';
-				$value = $this->__('Disable');
-                break;
-        }
-        return $isExport 
-			? $value 
-			: '<span class="' . $class . '"><span>' . $value . '</span></span>';
-    }	
 }

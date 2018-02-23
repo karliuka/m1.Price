@@ -25,12 +25,12 @@ class Faonni_Price_Model_Round_Rule
     /**
      * Status Disabled Constants
      */	
-    const STATUS_DISABLED = 0;
+    const STATUS_DISABLE = 0;
 	
     /**
      * Status Enabled Constants
      */		
-    const STATUS_ENABLED = 1;
+    const STATUS_ENABLE = 1;
 	
     /**
      * The Event Prefix Name
@@ -63,6 +63,6 @@ class Faonni_Price_Model_Round_Rule
      */
     public function isAvailable()
     {
-        return (bool)$this->getData('status') == self::STATUS_ENABLED;
+        return (bool)$this->getData('status') == self::STATUS_ENABLE;
     }
 }

@@ -53,6 +53,16 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 			'name'     => 'max_amount',
 		));
 		
+        $field = $fieldset->addField('store_id', 'select', array(
+            'name'      => 'store_id',
+            'label'     => $this->__('Store View'),
+            'title'     => $this->__('Store View'),
+            'required'  => true,
+            'values'    => Mage::getSingleton('adminhtml/system_store')->getStoreValuesForForm(),
+        ));
+        $renderer = $this->getLayout()->createBlock('adminhtml/store_switcher_form_renderer_fieldset_element');
+        $field->setRenderer($renderer);
+		
         $fieldset->addField('type', 'select', array(
             'label'     => $this->__('Rounding Type'),
             'title'     => $this->__('Rounding Type'),
