@@ -23,31 +23,6 @@ class Faonni_Price_Model_Currency
 	extends Mage_Directory_Model_Currency
 {
     /**
-     * Round fractions up constant
-     */	
-	const TYPE_CEIL = 'ceil';
-	
-    /**
-     * Round fractions down constant
-     */	
-	const TYPE_FLOOR = 'floor';
-	
-    /**
-     * Swedish Round fractions up constant
-     */	
-	const TYPE_SWEDISH_CEIL = 'swedish_ceil';
-	
-    /**
-     * Swedish Round fractions
-     */	
-	const TYPE_SWEDISH_ROUND = 'swedish_round';
-	
-    /**
-     * Swedish Round fractions down constant
-     */	
-	const TYPE_SWEDISH_FLOOR = 'swedish_floor';
-	
-    /**
      * Round Price helper
      *
      * @var Faonni_Price_Helper_Data

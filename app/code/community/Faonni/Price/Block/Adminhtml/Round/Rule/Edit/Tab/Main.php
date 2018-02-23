@@ -138,17 +138,20 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
                 'swedish_fraction',
                 'type',
                 array(
-					Faonni_Price_Model_Currency::TYPE_SWEDISH_CEIL,
-					Faonni_Price_Model_Currency::TYPE_SWEDISH_ROUND,
-					Faonni_Price_Model_Currency::TYPE_SWEDISH_FLOOR
+					Faonni_Price_Model_Math::TYPE_SWEDISH_CEIL,
+					Faonni_Price_Model_Math::TYPE_SWEDISH_ROUND,
+					Faonni_Price_Model_Math::TYPE_SWEDISH_FLOOR
 				)
             )
             ->addFieldDependence(
                 'precision',
                 'type',
                 array(
-					Faonni_Price_Model_Currency::TYPE_CEIL,
-					Faonni_Price_Model_Currency::TYPE_FLOOR
+					Faonni_Price_Model_Math::TYPE_CEIL,
+					Faonni_Price_Model_Math::TYPE_FLOOR,
+					Faonni_Price_Model_Math::TYPE_EXCEL_CEIL,
+					Faonni_Price_Model_Math::TYPE_EXCEL_ROUND,
+					Faonni_Price_Model_Math::TYPE_EXCEL_FLOOR				
 				)
             )			
             ->addFieldDependence('amount', 'subtract', '1')
