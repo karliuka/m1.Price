@@ -60,21 +60,108 @@ class Faonni_Price_Model_Math
      * Excel Round Fractions Down
      */	
 	const TYPE_EXCEL_FLOOR = 'excel_floor';
+	
+    /**
+     * Round Rule Collection
+     *
+     * @var Faonni_Price_Model_Resource_Round_Rule_Collection
+     */
+    protected $_ruleCollection;
+    
+    /**
+     * Round Price Helper
+     *
+     * @var Faonni_Price_Helper_Data
+     */
+    protected $_helper;
+    
+    /**
+     * Initialize Model
+     */
+    public function __construct() 
+    {
+        $this->_helper = Mage::helper('faonni_price');
+    }  
+    
+    /**
+     * Retrieve Round Rule Collection
+     *
+     * @return Faonni_Price_Model_Resource_Round_Rule_Collection
+     */
+    public function getRuleCollection()
+    {
+        if (null === $this->_ruleCollection) {
+            $this->_ruleCollection = Mage::getResourceModel('faonni_price/round_rule_collection');
+            $this->_ruleCollection
+				->addStoreFilter(Mage::app()->getStore()->getStoreId())
+				->addStatusFilter();
+        }
+        return $this->_ruleCollection;
+    }	
 
     /**
-     * Retrieve the Rounded Price
+     * Retrieve The Rounded Price
      * 
      * @param float $price
      * @return float
      */
     public function round($price)
     {
-		$helper = Mage::helper('faonni_price');
-		$fraction = $helper->getSwedishFraction();
-		$precision = $helper->getPrecision();
+		if ($this->_helper->isRoundManage()) {
+			return $this->_roundByRule($price);
+		}		
+		$price = $this->_round(
+			$price, 
+			$this->_helper->getRoundType(), 
+			$this->_helper->getPrecision(), 
+			$this->_helper->getSwedishFraction()
+		);
+		return $this->_subtract(
+			$price, 
+			$this->_helper->isSubtract(), 
+			$this->_helper->getAmount()
+		);
+    }
+    
+    /**
+     * Retrieve The Rounded Price
+     * 
+     * @param float $price  
+     * @return float
+     */
+    protected function _roundByRule($price)
+    {
+		foreach ($this->getRuleCollection() as $rule) {
+			if ($rule->getMinAmount() <= $price && $price <= $rule->getMaxAmount()) {
+				$price = $this->_round(
+					$price, 
+					$rule->getType(), 
+					$rule->getPrecision(), 
+					$rule->getSwedishFraction()
+				);
+				return $this->_subtract(
+					$price, 
+					$rule->getSubtract(), 
+					$rule->getAmount()
+				);
+			}
+		}
+		return $price;
+    }
+    
+    /**
+     * Retrieve The Rounded Price
+     * 
+     * @param float $price
+     * @param string $type
+     * @param integer $precision
+     * @param float $fraction      
+     * @return float
+     */
+    protected function _round($price, $type, $precision, $fraction)
+    {
 		$multiplier = pow(10, abs($precision));
-		
-		switch ($helper->getRoundType()) {
+		switch ($type) {
 			case self::TYPE_CEIL:
 				$price = round($price, $precision, PHP_ROUND_HALF_UP);
 				break;
@@ -107,5 +194,34 @@ class Faonni_Price_Model_Math
 				break;						
 		}
 		return $price;
-    }	
+    } 
+    
+    /**
+     * Formats A Number As A Currency String
+     * 
+     * @param float $price
+     * @return string
+     */
+    public function format($price)
+    {
+		return sprintf('%0.4F', $price);
+    }
+    
+    /**
+     * Retrieve the price with a subtracted amount
+     * 
+     * @param float $price
+     * @param bool $subtract
+     * @param float $amount   
+     * @return float
+     */
+    protected function _subtract($price, $subtract, $amount)
+    {
+		if ($subtract) {
+			$price = $price - $amount;
+		}					
+		return (0 < $price) 
+			? $price 
+			: $this->format(0);
+    }    
 }

@@ -136,11 +136,6 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'renderer' => $currency
 		));
 		
-		$this->addColumn('position', array(
-			'header' => $this->__('Position'),
-			'index'  => 'position'
-		));	
-		
 		$this->addColumn('store_id', array(
 			'header'    => $this->__('Store'),
 			'index'     => 'store_id',

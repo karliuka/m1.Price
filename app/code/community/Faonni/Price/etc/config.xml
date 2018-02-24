@@ -109,6 +109,7 @@
             <price>
                 <enabled>1</enabled>
                 <base_price>0</base_price>
+				<manage>0</manage>
                 <type>floor</type>
                 <swedish_fraction>0.05</swedish_fraction>
 				<precision>0</precision>

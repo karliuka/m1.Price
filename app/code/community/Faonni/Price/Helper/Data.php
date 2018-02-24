@@ -23,57 +23,62 @@ class Faonni_Price_Helper_Data
 	extends Mage_Core_Helper_Abstract
 {
     /**
-     * Enabled config path
+     * Enabled Config Path
      */
     const XML_ROUND_ENABLED = 'currency/price/enabled';
     
     /**
-     * Subtract config path
+     * Subtract Config Path
      */
     const XML_ROUND_SUBTRACT = 'currency/price/subtract';    
     
     /**
-     * Rounding base price config path
+     * Rounding Base Price Config Path
      */
     const XML_ROUND_BASE_PRICE = 'currency/price/base_price';  
      
     /**
-     * Rounding type config path
+     * Rounding Type Config Path
      */
     const XML_ROUND_TYPE = 'currency/price/type';  
       
     /**
-     * Rounding subtract amount config path
+     * Rounding Subtract Amount Config Path
      */
     const XML_ROUND_AMOUNT = 'currency/price/amount';  
       
     /**
-     * Rounding precision config path
+     * Rounding Precision Config Path
      */
     const XML_ROUND_PRECISION = 'currency/price/precision';  
       
     /**
-     * Show decimal zeros config path
+     * Show Decimal Zeros Config Path
      */
     const XML_DECIMAL_ZERO = 'currency/price/show_decimal_zero';
          
     /**
-     * Replace zero price config path
+     * Replace Zero Price Config Path
      */
     const XML_ZERO_PRICE = 'currency/price/replace_zero_price';
          
     /**
-     * Text of replace config path
+     * Text Of Replace Config Path
      */
     const XML_ZERO_PRICE_TEXT = 'currency/price/zero_price_text'; 
 	
     /**
-     * swedish rounding fraction config path
+     * Swedish Rounding Fraction Config Path
      */
     const XML_SWEDISH_ROUND_FRACTION = 'currency/price/swedish_fraction'; 	
+    
+    /**
+     * Manage Config Path
+     */
+    const XML_ROUND_MANAGE = 'currency/price/manage';    
                               	
     /**
-     * Check round price convert functionality should be enabled
+     * Check Round Price Convert Functionality Should Be Enabled
      *
      * @return bool
      */
@@ -85,7 +90,7 @@ class Faonni_Price_Helper_Data
     }
 	
     /**
-     * Check subtract 0.01 functionality should be enabled
+     * Check Subtract 0.01 Functionality Should Be Enabled
      *
      * @return bool
      */
@@ -95,7 +100,7 @@ class Faonni_Price_Helper_Data
     }
     
     /**
-     * Check decimal zero functionality should be enabled
+     * Check Decimal Zero Functionality Should Be Enabled
      *
      * @return bool
      */
@@ -105,7 +110,7 @@ class Faonni_Price_Helper_Data
     }
     
     /**
-     * Check replace zero price functionality should be enabled
+     * Check Replace Zero Price Functionality Should Be Enabled
      *
      * @return bool
      */
@@ -115,17 +120,27 @@ class Faonni_Price_Helper_Data
     }
             
     /**
-     * Check rounding base price
+     * Check Rounding Base Price
      *
      * @return string
      */
     public function isRoundingBasePrice()
     {
         return Mage::getStoreConfig(self::XML_ROUND_BASE_PRICE);
+    }  
+    
+    /**
+     * Check Round Manage Functionality Should Be Enabled 
+     *
+     * @return bool
+     */
+    public function isRoundManage()
+    {
+        return Mage::getStoreConfig(self::XML_ROUND_MANAGE);
     }    
 	
     /**
-     * Retrieve rounding type
+     * Retrieve Rounding Type
      *
      * @return string
      */
@@ -135,7 +150,7 @@ class Faonni_Price_Helper_Data
     }
 	
     /**
-     * Retrieve subtract amount
+     * Retrieve Subtract Amount
      *
      * @return string
      */
@@ -148,7 +163,7 @@ class Faonni_Price_Helper_Data
     }
 	
     /**
-     * Retrieve precision
+     * Retrieve Precision
      *
      * @return int
      */
@@ -158,7 +173,7 @@ class Faonni_Price_Helper_Data
     }
 	
     /**
-     * Retrieve text of replace
+     * Retrieve Text Of Replace
      *
      * @return string
      */
@@ -168,7 +183,7 @@ class Faonni_Price_Helper_Data
     }
 	
     /**
-     * Retrieve swedish round fraction
+     * Retrieve Swedish Round Fraction
      *
      * @return float
      */

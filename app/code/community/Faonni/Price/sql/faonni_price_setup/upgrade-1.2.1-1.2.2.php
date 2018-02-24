@@ -96,13 +96,6 @@ if (!$connection->isTableExists($installer->getTable('faonni_price/round_rule'))
 			'12,4', 
 			array(), 
 			'Swedish Fraction'
-		)				
-		->addColumn(
-			'position', 
-			Varien_Db_Ddl_Table::TYPE_SMALLINT, 
-			null, 
-			array('unsigned' => true), 
-			'Position'
 		)		
 		->addColumn(
 			'status', 
@@ -115,10 +108,6 @@ if (!$connection->isTableExists($installer->getTable('faonni_price/round_rule'))
 			$installer->getIdxName('faonni_price/round_rule', array('store_id')),
 			array('store_id')
 		)		
-		->addIndex(
-			$installer->getIdxName('faonni_price/round_rule', array('position')),
-			array('position')
-		)
 		->addIndex(
 			$installer->getIdxName('faonni_price/round_rule', array('status')),
 			array('status')

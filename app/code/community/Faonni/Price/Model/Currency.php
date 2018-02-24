@@ -52,7 +52,6 @@ class Faonni_Price_Model_Currency
         
 		if ($this->isRoundEnabled($toCurrency)) {
 			$price = $this->_round($price);
-			$price = $this->_subtract($price);
 		}
 		return $price;		
     }
@@ -133,33 +132,6 @@ class Faonni_Price_Model_Currency
     }
     
     /**
-     * Formats a number as a currency string
-     * 
-     * @param float $price
-     * @return string
-     */
-    protected function _format($price)
-    {
-		return sprintf('%0.4F', $price);
-    }
-       
-    /**
-     * Retrieve the price with a subtracted amount
-     * 
-     * @param float $price
-     * @return float
-     */
-    protected function _subtract($price)
-    {
-		if ($this->_helper->isSubtract()) {
-			$price = $price - $this->_helper->getAmount();
-		}					
-		return (0 < $price) 
-			? $price 
-			: $this->_format(0);
-    }
-    
-    /**
      * Retrieve the rounded price
      * 
      * @param float $price
@@ -168,9 +140,7 @@ class Faonni_Price_Model_Currency
     protected function _round($price)
     {
 		$math = Mage::getSingleton('faonni_price/math');
-		return $this->_format(
-			$math->round($price)
-		);
+		return $math->format($math->round($price));
     }
     
     /**

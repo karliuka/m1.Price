@@ -95,14 +95,8 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tab_Main
 		
 		$fieldset->addField('amount', 'text', array(
 			'label'     => $this->__('Subtract Amount'),
-			'title'     => $this->__('Subtract Amount'),	
+			'title'     => $this->__('Subtract Amount'),		
 			'name'      => 'amount',
-		));
-		
-		$fieldset->addField('position', 'text', array(
-			'label'     => $this->__('Position'),
-			'title'     => $this->__('Position'),	
-			'name'      => 'position'
 		));
 		
         $fieldset->addField('status', 'select', array(
