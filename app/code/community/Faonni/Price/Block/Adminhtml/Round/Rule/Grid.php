@@ -69,7 +69,10 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
      */			
 	protected function _prepareColumns()
 	{
-		$store = $this->_getStore();
+		/* custom renders */
+		$currency = 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency';
+		$code = 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency_Code';
+		/* grid columns */
 		$this->addColumn('rule_id', array(
 			'header' => $this->__('ID'),
 			'align'  => 'right',
@@ -82,15 +85,21 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'header' => $this->__('Min Amount'),
 			'filter' => false,
 			'index' => 'min_amount',
-			'renderer' => 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency',
+			'renderer' => $currency,
         ));	
 		
         $this->addColumn('max_amount', array(
 			'header' => $this->__('Max Amount'),
 			'filter' => false,
 			'index' => 'max_amount',
-			'renderer' => 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency',
+			'renderer' => $currency,
         ));
+        
+        $this->addColumn('currency_code', array(
+			'header' => $this->__('Currency Code'),
+			'filter' => false,
+			'renderer' => $code,
+        ));        
 		
 		$this->addColumn('type', array(
 			'header' => $this->__('Rounding Type'),
@@ -110,7 +119,8 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'header' => $this->__('Subtract Amount'),
 			'filter' => false,
 			'index' => 'amount',
-			'renderer' => 'Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency',
+			'renderer' => $currency,
+			'default' => '0.00',
         ));
 		
 		$this->addColumn('precision', array(
@@ -122,7 +132,8 @@ class Faonni_Price_Block_Adminhtml_Round_Rule_Grid
 			'header' => $this->__('Swedish Fraction'),
 			'index'  => 'swedish_fraction',
 			'type'   => 'options',
-			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_fraction')->toArray()			
+			'options' => Mage::getSingleton('faonni_price/adminhtml_system_config_source_fraction')->toArray(),
+			'renderer' => $currency
 		));
 		
 		$this->addColumn('position', array(

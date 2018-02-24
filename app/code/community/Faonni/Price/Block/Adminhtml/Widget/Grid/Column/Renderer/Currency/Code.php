@@ -19,7 +19,7 @@
  * @copyright   Copyright (c) 2018 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency
+class Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency_Code
     extends Mage_Adminhtml_Block_Widget_Grid_Column_Renderer_Currency
 {
     /**
@@ -30,9 +30,8 @@ class Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency
      */
     public function render(Varien_Object $row)
     {
-		if ($data = (string)$row->getData($this->getColumn()->getIndex())) {
-			return sprintf('%0.2F', $data);
-        }
-        return $this->getColumn()->getDefault();
+		return Mage::app()->getStore($row->getStoreId())
+			->getDefaultCurrency()
+			->getCurrencyCode();
     }
 }
