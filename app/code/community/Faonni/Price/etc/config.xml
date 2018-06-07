@@ -75,6 +75,18 @@
 			</faonni_price_read>
 		</resources>		
 	</global>
+    <frontend>
+        <events>
+            <catalog_product_view_config>
+                <observers>
+                    <faonni_price>
+                        <class>faonni_price/observer</class>
+                        <method>updatePrecision</method>
+                    </faonni_price>
+                </observers>
+            </catalog_product_view_config>
+        </events>
+	</frontend>	
     <adminhtml>
         <layout>
             <updates>
