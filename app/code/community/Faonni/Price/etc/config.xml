@@ -76,16 +76,13 @@
 		</resources>		
 	</global>
     <frontend>
-        <events>
-            <catalog_product_view_config>
-                <observers>
-                    <faonni_price>
-                        <class>faonni_price/observer</class>
-                        <method>updatePrecision</method>
-                    </faonni_price>
-                </observers>
-            </catalog_product_view_config>
-        </events>
+        <layout>
+            <updates>
+                <faonni_price>
+                    <file>faonni/price.xml</file>
+                </faonni_price>
+            </updates>
+        </layout>		
 	</frontend>	
     <adminhtml>
         <layout>
