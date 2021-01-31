@@ -1,0 +1,6 @@
+app/code/community/Faonni/Price/ app/code/community/Faonni/Price/
+app/design/frontend/base/default/template/faonni/price/ app/design/frontend/base/default/template/faonni/price/
+app/design/frontend/base/default/layout/faonni/price.xml app/design/frontend/base/default/layout/faonni/price.xml
+app/design/adminhtml/default/default/layout/faonni/price.xml app/design/adminhtml/default/default/layout/faonni/price.xml
+app/etc/modules/Faonni_Price.xml app/etc/modules/Faonni_Price.xml
+app/locale/en_US/Faonni_Price.csv app/locale/en_US/Faonni_Price.csv

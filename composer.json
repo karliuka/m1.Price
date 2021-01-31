@@ -1,0 +1,24 @@
+{
+    "name": "faonni/magento-price",
+    "license": "OSL-3.0",
+    "type": "magento-module",
+    "description": "Rounding price to prettier value for multi-currency stores",
+    "version": "1.2.3",
+    "authors": [{
+        "name": "Karliuka Vitalii",
+        "email": "karliuka.vitalii@gmail.com"
+    }],
+    "require": {
+        "openmage/magento-lts": ">=19.4.0"
+    },
+    "extra": {
+        "map": [
+            ["app/etc/modules/Faonni_Price.xml", "app/etc/modules/Faonni_Price.xml"],
+            ["app/code/community/Faonni/Price/", "app/code/community/Faonni/Price/"],
+            ["app/design/frontend/base/default/template/faonni/price/", "app/design/frontend/base/default/template/faonni/price/"],
+            ["app/design/frontend/base/default/layout/faonni/price.xml", "app/design/frontend/base/default/layout/faonni/price.xml"],
+            ["app/design/adminhtml/default/default/layout/faonni/price.xml", "app/design/adminhtml/default/default/layout/faonni/price.xml"],
+            ["app/locale/en_US/Faonni_Price.csv", "app/locale/en_US/Faonni_Price.csv"]
+        ]
+    }
+}
