@@ -1,4 +1,4 @@
-# Magento Price
+# Magento Rounding Price
 
 Rounding Price to Prettier Value for Multi-Currency Stores.
 
