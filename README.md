@@ -67,4 +67,6 @@ Pleace, create backup so you can recover the data at a later time.
 1. Remove the folder {Magento root}/app/code/community/Faonni/Price
 2. Remove the folder {Magento root}/app/design/frontend/base/default/template/faonni/price
 3. Remove the file {Magento root}/app/design/frontend/base/default/layout/faonni/price.xml
+3. Remove the file {Magento root}/app/design/adminhtml/default/default/layout/faonni/price.xml
 4. Remove the file {Magento root}/app/etc/modules/Faonni_Price.xml
+4. Remove the file {Magento root}/app/locale/en_US/Faonni_Price.csv
