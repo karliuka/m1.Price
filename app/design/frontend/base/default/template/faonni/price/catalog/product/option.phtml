@@ -22,16 +22,16 @@
 ?>
 <?php if (!$this->isShowDecimalZero()): ?>
 <script>
-	Product.OptionsPrice.addMethods({
-		formatPrice: function(price) {
-			if (parseInt(price) != price) {
-				return formatCurrency(price, this.priceFormat);
-			}
-			var priceFormat = Object.assign({}, this.priceFormat);
-			priceFormat.precision = 0;
-			priceFormat.requiredPrecision = 0;	
-			return formatCurrency(price, priceFormat);
-		}
-	});
+    Product.OptionsPrice.addMethods({
+        formatPrice: function(price) {
+            if (parseInt(price) != price) {
+                return formatCurrency(price, this.priceFormat);
+            }
+            var priceFormat = Object.assign({}, this.priceFormat);
+            priceFormat.precision = 0;
+            priceFormat.requiredPrecision = 0;	
+            return formatCurrency(price, priceFormat);
+        }
+    });
 </script>
 <?php endif ?>

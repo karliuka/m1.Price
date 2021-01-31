@@ -19,64 +19,64 @@
  * @copyright   Copyright (c) 2018 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class Faonni_Price_Helper_Data 
-	extends Mage_Core_Helper_Abstract
+class Faonni_Price_Helper_Data
+    extends Mage_Core_Helper_Abstract
 {
     /**
      * Enabled Config Path
      */
     const XML_ROUND_ENABLED = 'currency/price/enabled';
-    
+
     /**
      * Subtract Config Path
      */
-    const XML_ROUND_SUBTRACT = 'currency/price/subtract';    
-    
+    const XML_ROUND_SUBTRACT = 'currency/price/subtract';
+
     /**
      * Rounding Base Price Config Path
      */
-    const XML_ROUND_BASE_PRICE = 'currency/price/base_price';  
-     
+    const XML_ROUND_BASE_PRICE = 'currency/price/base_price';
+
     /**
      * Rounding Type Config Path
      */
-    const XML_ROUND_TYPE = 'currency/price/type';  
-      
+    const XML_ROUND_TYPE = 'currency/price/type';
+
     /**
      * Rounding Subtract Amount Config Path
      */
-    const XML_ROUND_AMOUNT = 'currency/price/amount';  
-      
+    const XML_ROUND_AMOUNT = 'currency/price/amount';
+
     /**
      * Rounding Precision Config Path
      */
-    const XML_ROUND_PRECISION = 'currency/price/precision';  
-      
+    const XML_ROUND_PRECISION = 'currency/price/precision';
+
     /**
      * Show Decimal Zeros Config Path
      */
     const XML_DECIMAL_ZERO = 'currency/price/show_decimal_zero';
-         
+
     /**
      * Replace Zero Price Config Path
      */
     const XML_ZERO_PRICE = 'currency/price/replace_zero_price';
-         
+
     /**
      * Text Of Replace Config Path
      */
-    const XML_ZERO_PRICE_TEXT = 'currency/price/zero_price_text'; 
-	
+    const XML_ZERO_PRICE_TEXT = 'currency/price/zero_price_text';
+
     /**
      * Swedish Rounding Fraction Config Path
      */
-    const XML_SWEDISH_ROUND_FRACTION = 'currency/price/swedish_fraction'; 	
-    
+    const XML_SWEDISH_ROUND_FRACTION = 'currency/price/swedish_fraction';
+
     /**
      * Manage Config Path
      */
-    const XML_ROUND_MANAGE = 'currency/price/manage';    
-                              	
+    const XML_ROUND_MANAGE = 'currency/price/manage';
+
     /**
      * Check Round Price Convert Functionality Should Be Enabled
      *
@@ -85,7 +85,7 @@ class Faonni_Price_Helper_Data
     public function isEnabled()
     {
         return !Mage::app()->getStore()->isAdmin() && 
-            Mage::helper('Core')->isModuleEnabled('Faonni_Price') && 
+            Mage::helper('Core')->isModuleEnabled('Faonni_Price') &&
             Mage::getStoreConfig(self::XML_ROUND_ENABLED);
     }
 	
@@ -98,7 +98,7 @@ class Faonni_Price_Helper_Data
     {
         return Mage::getStoreConfig(self::XML_ROUND_SUBTRACT);
     }
-    
+
     /**
      * Check Decimal Zero Functionality Should Be Enabled
      *
@@ -108,7 +108,7 @@ class Faonni_Price_Helper_Data
     {
         return Mage::getStoreConfig(self::XML_DECIMAL_ZERO);
     }
-    
+
     /**
      * Check Replace Zero Price Functionality Should Be Enabled
      *
@@ -118,7 +118,7 @@ class Faonni_Price_Helper_Data
     {
         return Mage::getStoreConfig(self::XML_ZERO_PRICE);
     }
-            
+
     /**
      * Check Rounding Base Price
      *
@@ -127,8 +127,8 @@ class Faonni_Price_Helper_Data
     public function isRoundingBasePrice()
     {
         return Mage::getStoreConfig(self::XML_ROUND_BASE_PRICE);
-    }  
-    
+    }
+
     /**
      * Check Round Manage Functionality Should Be Enabled 
      *
@@ -137,8 +137,8 @@ class Faonni_Price_Helper_Data
     public function isRoundManage()
     {
         return Mage::getStoreConfig(self::XML_ROUND_MANAGE);
-    }    
-	
+    }
+
     /**
      * Retrieve Rounding Type
      *
@@ -148,7 +148,7 @@ class Faonni_Price_Helper_Data
     {
         return Mage::getStoreConfig(self::XML_ROUND_TYPE);
     }
-	
+
     /**
      * Retrieve Subtract Amount
      *
@@ -157,11 +157,11 @@ class Faonni_Price_Helper_Data
     public function getAmount()
     {
         $amount = Mage::getStoreConfig(self::XML_ROUND_AMOUNT);
-		return is_numeric($amount) 
-			? $amount 
-			: 0;
+        return is_numeric($amount) 
+            ? $amount 
+            : 0;
     }
-	
+
     /**
      * Retrieve Precision
      *
@@ -171,7 +171,7 @@ class Faonni_Price_Helper_Data
     {
         return (int)Mage::getStoreConfig(self::XML_ROUND_PRECISION);
     }
-	
+
     /**
      * Retrieve Text Of Replace
      *
@@ -181,7 +181,7 @@ class Faonni_Price_Helper_Data
     {
         return Mage::getStoreConfig(self::XML_ZERO_PRICE_TEXT);
     }
-	
+
     /**
      * Retrieve Swedish Round Fraction
      *
@@ -190,8 +190,8 @@ class Faonni_Price_Helper_Data
     public function getSwedishFraction()
     {
         $fraction = Mage::getStoreConfig(self::XML_SWEDISH_ROUND_FRACTION);
-		return ($fraction > 0)
-			? $fraction 
-			: 0.05;        
-    }    	
+        return ($fraction > 0)
+            ? $fraction 
+            : 0.05;
+    }
 }

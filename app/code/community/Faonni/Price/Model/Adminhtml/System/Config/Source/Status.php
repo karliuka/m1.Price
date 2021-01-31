@@ -28,16 +28,16 @@ class Faonni_Price_Model_Adminhtml_System_Config_Source_Status
      */
     public function toOptionArray()
     {
-		return array(
-			array(
-				'value' => '0', 
-				'label' => Mage::helper('faonni_price')->__('Disable')
-			),
-			array(
-				'value' => '1', 
-				'label' => Mage::helper('faonni_price')->__('Enable')
-			)
-		);
+        return array(
+            array(
+                'value' => '0',
+                'label' => Mage::helper('faonni_price')->__('Disable')
+            ),
+            array(
+                'value' => '1',
+                'label' => Mage::helper('faonni_price')->__('Enable')
+            )
+        );
     }
 
     /**
@@ -47,9 +47,9 @@ class Faonni_Price_Model_Adminhtml_System_Config_Source_Status
      */
     public function toArray()
     {
-		return array(
+        return array(
             '0' => Mage::helper('faonni_price')->__('Disable'),
             '1' => Mage::helper('faonni_price')->__('Enable')
-		);
+        );
     }
 }

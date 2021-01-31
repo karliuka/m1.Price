@@ -22,13 +22,13 @@
  */
 -->
 <config>
-	<modules>
-		<Faonni_Price>
-			<active>true</active>
-			<codePool>community</codePool>
+    <modules>
+        <Faonni_Price>
+            <active>true</active>
+            <codePool>community</codePool>
             <depends>
                 <Mage_Catalog />
-            </depends>			
-		</Faonni_Price>
-	</modules>
+            </depends>
+        </Faonni_Price>
+    </modules>
 </config>

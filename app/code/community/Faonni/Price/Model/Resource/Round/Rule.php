@@ -20,11 +20,11 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Faonni_Price_Model_Resource_Round_Rule
-	extends Mage_Core_Model_Resource_Db_Abstract
+    extends Mage_Core_Model_Resource_Db_Abstract
 {
     /**
      * Set main entity table name and primary key field name
-	 *
+     *
      * @return void
      */
     protected function _construct()

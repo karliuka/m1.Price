@@ -22,59 +22,59 @@
  */
 -->
 <config>
-	<modules>
-		<Faonni_Price>
-			<version>1.2.2</version>
-		</Faonni_Price>
-	</modules>
-	<global>
-		<blocks>
-			<faonni_price>
-				<class>Faonni_Price_Block</class>
-			</faonni_price>			
-		</blocks>	
-		<helpers>
-			<faonni_price>
-				<class>Faonni_Price_Helper</class>
-			</faonni_price>
-		</helpers>
-		<models>
+    <modules>
+        <Faonni_Price>
+            <version>1.2.2</version>
+        </Faonni_Price>
+    </modules>
+    <global>
+        <blocks>
+            <faonni_price>
+                <class>Faonni_Price_Block</class>
+            </faonni_price>
+        </blocks>
+        <helpers>
+            <faonni_price>
+                <class>Faonni_Price_Helper</class>
+            </faonni_price>
+        </helpers>
+        <models>
             <faonni_price>
                 <class>Faonni_Price_Model</class>
-				<resourceModel>faonni_price_resource</resourceModel>
+                <resourceModel>faonni_price_resource</resourceModel>
             </faonni_price>
-			<directory>
-				<rewrite>
-					<currency>Faonni_Price_Model_Currency</currency>
-				</rewrite>
-			</directory>
-			<faonni_price_resource>
-				<class>Faonni_Price_Model_Resource</class>
-				<entities>		  
-					<round_rule>
-						<table>faonni_price_round_rule</table>
-					</round_rule> 					
-				</entities>
-			</faonni_price_resource>			
-		</models>
-		<resources>
-			<faonni_price_setup>
-				<setup>
-					<module>Faonni_Price</module>
-				</setup>
-			</faonni_price_setup>
-			<faonni_price_write>
-				<connection>
-					<use>core_write</use>
-				</connection>
-			</faonni_price_write>
-			<faonni_price_read>
-				<connection>
-					<use>core_read</use>
-				</connection>
-			</faonni_price_read>
-		</resources>		
-	</global>
+            <directory>
+                <rewrite>
+                    <currency>Faonni_Price_Model_Currency</currency>
+                </rewrite>
+            </directory>
+            <faonni_price_resource>
+                <class>Faonni_Price_Model_Resource</class>
+                <entities>
+                    <round_rule>
+                        <table>faonni_price_round_rule</table>
+                    </round_rule>
+                </entities>
+            </faonni_price_resource>
+        </models>
+        <resources>
+            <faonni_price_setup>
+                <setup>
+                    <module>Faonni_Price</module>
+                </setup>
+            </faonni_price_setup>
+            <faonni_price_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </faonni_price_write>
+            <faonni_price_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </faonni_price_read>
+        </resources>
+    </global>
     <frontend>
         <layout>
             <updates>
@@ -82,8 +82,8 @@
                     <file>faonni/price.xml</file>
                 </faonni_price>
             </updates>
-        </layout>		
-	</frontend>	
+        </layout>
+    </frontend>
     <adminhtml>
         <layout>
             <updates>
@@ -91,7 +91,7 @@
                     <file>faonni/price.xml</file>
                 </faonni_price>
             </updates>
-        </layout>	
+        </layout>
         <translate>
             <modules>
                 <Faonni_Price>
@@ -112,22 +112,22 @@
                 </args>
             </adminhtml>
         </routers>
-    </admin>	
+    </admin>
     <default>
         <currency>
             <price>
                 <enabled>1</enabled>
                 <base_price>0</base_price>
-				<manage>0</manage>
+                <manage>0</manage>
                 <type>floor</type>
                 <swedish_fraction>0.05</swedish_fraction>
-				<precision>0</precision>
+                <precision>0</precision>
                 <subtract>1</subtract>
-				<amount>0.01</amount>
-				<show_decimal_zero>1</show_decimal_zero>
-				<replace_zero_price>0</replace_zero_price>
-				<zero_price_text>free</zero_price_text>
+                <amount>0.01</amount>
+                <show_decimal_zero>1</show_decimal_zero>
+                <replace_zero_price>0</replace_zero_price>
+                <zero_price_text>free</zero_price_text>
             </price>
         </currency>
-    </default>	
-</config> 
+    </default>
+</config>

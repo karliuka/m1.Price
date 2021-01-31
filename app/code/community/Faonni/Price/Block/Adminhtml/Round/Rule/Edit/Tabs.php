@@ -19,36 +19,36 @@
  * @copyright   Copyright (c) 2018 Karliuka Vitalii(karliuka.vitalii@gmail.com) 
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tabs 
-	extends Mage_Adminhtml_Block_Widget_Tabs
+class Faonni_Price_Block_Adminhtml_Round_Rule_Edit_Tabs
+    extends Mage_Adminhtml_Block_Widget_Tabs
 {
     /**
      * Initialize tabs edit
-	 *
+     *
      * Set settings
      */
-	public function __construct()
-	{
-		parent::__construct();
-		
-		$this->setId('round_rule_tabs');
-		$this->setDestElementId('edit_form');
-		$this->setTitle($this->__('Rule Information'));
-	}
-	
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->setId('round_rule_tabs');
+        $this->setDestElementId('edit_form');
+        $this->setTitle($this->__('Rule Information'));
+    }
+
     /**
      * Before rendering html, but after trying to load cache
-	 *
+     *
      * @return Mage_Core_Block_Abstract
-     */	
-	protected function _beforeToHtml()
-	{
-		$this->addTab('main_section', array(
-			'label'   => $this->__('General'),
-			'title'   => $this->__('General'),
-			'content' => $this->getLayout()->createBlock('faonni_price/adminhtml_round_rule_edit_tab_main')->toHtml(),
-		));
-		
-		return parent::_beforeToHtml();
-	}
+     */
+    protected function _beforeToHtml()
+    {
+        $this->addTab('main_section', array(
+            'label'   => $this->__('General'),
+            'title'   => $this->__('General'),
+            'content' => $this->getLayout()->createBlock('faonni_price/adminhtml_round_rule_edit_tab_main')->toHtml(),
+        ));
+
+        return parent::_beforeToHtml();
+    }
 }

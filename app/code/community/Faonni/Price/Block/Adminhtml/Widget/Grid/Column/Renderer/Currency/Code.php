@@ -30,8 +30,8 @@ class Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency_Code
      */
     public function render(Varien_Object $row)
     {
-		return Mage::app()->getStore($row->getStoreId())
-			->getDefaultCurrency()
-			->getCurrencyCode();
+        return Mage::app()->getStore($row->getStoreId())
+            ->getDefaultCurrency()
+            ->getCurrencyCode();
     }
 }

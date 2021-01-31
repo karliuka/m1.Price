@@ -20,19 +20,19 @@
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 class Faonni_Price_Block_Adminhtml_Round_Rule
-	extends Mage_Adminhtml_Block_Widget_Grid_Container
+    extends Mage_Adminhtml_Block_Widget_Grid_Container
 {
     /**
      * Initialize block
-	 *
+     *
      * @return void
      */
-	public function __construct()
-	{
-		$this->_controller = 'adminhtml_round_rule';
-		$this->_blockGroup = 'faonni_price';
-		$this->_headerText = $this->__('Manage Round Rules');
-		
-		parent::__construct();
-	}
+    public function __construct()
+    {
+        $this->_controller = 'adminhtml_round_rule';
+        $this->_blockGroup = 'faonni_price';
+        $this->_headerText = $this->__('Manage Round Rules');
+
+        parent::__construct();
+    }
 }

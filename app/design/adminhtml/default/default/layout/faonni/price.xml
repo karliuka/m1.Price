@@ -22,15 +22,15 @@
  */
 -->
 <layout version='0.1.0'>
-	<!--
-	Layout for adminhtml price round rule manage
-	-->	
-	<adminhtml_price_round_rule_index>
-		<reference name='content'>
-			<block type='faonni_price/adminhtml_round_rule' name='round.rule' />
-		</reference>
-	</adminhtml_price_round_rule_index>
-	<!--
-	End updates
-	-->		
+    <!--
+    Layout for adminhtml price round rule manage
+    -->
+    <adminhtml_price_round_rule_index>
+        <reference name='content'>
+            <block type='faonni_price/adminhtml_round_rule' name='round.rule'/>
+        </reference>
+    </adminhtml_price_round_rule_index>
+    <!--
+    End updates
+    -->
 </layout>

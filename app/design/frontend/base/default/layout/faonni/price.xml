@@ -22,21 +22,21 @@
  */
 -->
 <layout version="0.1.0">
-	<!--
-	Additional block for bundle product type
-	-->
+    <!--
+    Additional block for bundle product type
+    -->
     <PRODUCT_TYPE_bundle>
         <reference name="head">
             <block type="faonni_price/catalog_product_option" name="faonni.price.option" template="faonni/price/catalog/product/option.phtml"/>
         </reference>
     </PRODUCT_TYPE_bundle>
-	<!--
-	Additional block for configurable product type
-	-->	
+    <!--
+    Additional block for configurable product type
+    -->
     <PRODUCT_TYPE_configurable>
         <reference name="head">
-			<block type="faonni_price/catalog_product_option" name="faonni.price.option" template="faonni/price/catalog/product/option.phtml"/>
+            <block type="faonni_price/catalog_product_option" name="faonni.price.option" template="faonni/price/catalog/product/option.phtml"/>
             <block type="faonni_price/catalog_product_option" name="faonni.price.configurable" template="faonni/price/catalog/product/option/configurable.phtml"/>
         </reference>
-    </PRODUCT_TYPE_configurable>	
+    </PRODUCT_TYPE_configurable>
 </layout>

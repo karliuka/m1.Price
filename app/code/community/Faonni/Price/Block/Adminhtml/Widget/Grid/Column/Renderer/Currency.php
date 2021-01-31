@@ -30,8 +30,8 @@ class Faonni_Price_Block_Adminhtml_Widget_Grid_Column_Renderer_Currency
      */
     public function render(Varien_Object $row)
     {
-		if ($data = (string)$row->getData($this->getColumn()->getIndex())) {
-			return sprintf('%0.2F', $data);
+        if ($data = (string)$row->getData($this->getColumn()->getIndex())) {
+            return sprintf('%0.2F', $data);
         }
         return $this->getColumn()->getDefault();
     }
